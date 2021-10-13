@@ -1,0 +1,25 @@
+<mat-form-field class="container">
+  <mat-label style="color: white;">Select Alert Type:</mat-label>
+  <mat-select (selectionChange)="dropdownValue($event)">
+    <mat-option *ngFor="let item of alertTypes" [value]="item.name" >
+      {{item.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+  
+<br>
+<h4 style="color: white; padding-left: 80px;">Select Area:</h4>
+<mat-grid-list cols="6" rowHeight="3:2" >
+  <mat-grid-tile  *ngFor="let data of area" >
+    <mat-accordion>
+      <mat-expansion-panel class="p-3 border bg-light" style="margin: 10px;">
+        <mat-expansion-panel-header>
+          <mat-panel-title   >
+            {{data}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <button mat-button (click)="clickHandler(data)">View!</button>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-grid-tile>
+</mat-grid-list>

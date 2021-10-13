@@ -1,0 +1,29 @@
+<div class="d-flex align-items-start flex-column">  
+    <a mat-flat-button routerLink="/WeatherData">Back</a>
+</div>
+<br>
+
+<mat-progress-bar mode="indeterminate" *ngIf="isCompleted"></mat-progress-bar>
+
+<h3 style="text-align: center;">Event Type:  {{alert}}</h3>
+<div class="d-flex justify-content-center">
+  <table mat-table [dataSource]="properties" class="mat-elevation-z8" style="width: 1000px;color: black; " >
+
+    <!-- AreaDescr Column -->
+    <ng-container matColumnDef="areaDesc">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center; color: black;size: 1px;"> Area Description </th>
+      <td *matCellDef="let i">{{i.areaDesc}}</td>
+      
+    </ng-container>
+
+    <!-- AffectedZone Column -->
+    <ng-container matColumnDef="affectedZones">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center; color: black;size: 1px;"> Affected Zones</th>
+      <td *matCellDef="let i">{{i.affectedZones}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+  </table>
+</div>
